@@ -1,0 +1,1102 @@
+
+
+[Python 몰랐던 문법 정리]
+
+Vscode 동일한 단어 중복 선택 : command D OR command shift L
+Vscode 선택 줄 선택 : command L
+
+
+Python 주석 : # OR ''' (comment) ''' (3번 + 3번)
+Vscode 한번에 주석 처리 : command /
+
+변수 주소 : id()
+
+=====================================================================================================
+
+Print ('a' * 3) 	--> aaa
+
+-----------------------------------------------------------------------------------------------------
+
+Print('hi', end=' ')
+Print('hello')		--> hi hello
+
+Print('hi', end = '\n\n')
+Print('hello')		--> hi
+
+			    hello
+
+Print('hi', end = '')
+Print('hello')		--> hi hello
+
+-----------------------------------------------------------------------------------------------------
+
+A = 1.2348724756827
+
+Print(f'A : {A}')	--> 1.2348724756827000
+Print(f'A : {A:.2f}')	--> 1.23
+
+
+-----------------------------------------------------------------------------------------------------
+
+Print (True) 		--> True
+Print (not (True)) 	--> False
+
+-----------------------------------------------------------------------------------------------------
+
+Print(2**3) 		--> 8 (2^3)
+Print(4/3) 		--> 1.33333
+Print(4//3) 		--> 1
+
+Print(10 > 3) 		--> True
+Print(10 != 3) 		--> True
+Print(not (10 > 3)) 	--> False
+
+Print(True and False) 	--> False
+Print(True & False) 	--> False
+Print(True or False) 	--> True
+Print(True | False) 	--> True
+
+Print(1 < 2 < 3) 	--> True
+Print(1 < 3 < 2) 	--> False
+
+-----------------------------------------------------------------------------------------------------
+
+# functions about calculation
+
+pow(a, b) : a^b
+abs(a) : absolute value of a
+max(a, b, c, ...) : maximum
+min(a, b, c, ...) : minimum
+
+round(3.14) : round off 	--> 3		(round off : 반올림)
+round(4.6) : round off 		--> 5
+
+
+# using math modulus
+
+from math import * --> import everything at modulus math
+
+Print(floor(4.99))		--> 4		(내림 연산)
+Print(ceil(4.99))		--> 5		(올림 연산)
+Print(sqrt(4))			--> 2		(square root)
+
+
+# or you can use like this
+
+import math 
+
+Num = math.floor(4.99)
+Num = math.ceil(4.99)
+Num = math.sqrt(4)
+
+
+# using random modulus
+
+from random import *
+
+Print(random())			--> prints random real number interval (0.0 , 1.0) 
+Print(random() * 10)		--> (0.0 , 10.0)
+Print(int(random() * 10))	--> prints random integer interval (0 , 10)
+
+Print(randrange(1, 46))		--> prints random integer interval [1 , 46) --> [0 , 45]
+Print(randint(1, 45))		--> prints random integer interval [1 , 45]
+
+
+
+=====================================================================================================
+
+
+String_1 = 'this is some string'
+
+String_2 = "this is same as String_1"
+
+String_3 = """
+	you can also type strings like this
+	understood?
+"""
+
+-----------------------------------------------------------------------------------------------------
+
+Age = 20
+Name = 'joon'
+
+Print (Name, 'is', Age, 'years old') 			--> joon is 20 years old
+Print(Name + ' is ' + str(Age) + ' years old') 		--> joon is 20 years old
+
+Is_adult = Age >= 20 --> this is bool data type
+
+Print('does', Name, 'adult? :', Is_adult) 		--> does joon adult? : True
+print('does ' + name + ' adult? : ' + str(is_adult)) 	--> does joon adult? : True
+
+-----------------------------------------------------------------------------------------------------
+
+# strings can be sliced in it's own elements
+
+Number = '0123456789'		--> Number : {0,1,2,3,4,5,6,7,8,9} : 10 elements
+Number[3]			--> 3
+Number[0:4]			--> 0123	(only prints 4th elements)
+Number[:4]			--> 0123
+Number[1:4]			--> 123		(also only prints 4th index elements)
+
+Number[-2]			--> 8		(prints (size - 2)th index element
+Number[-5:]			--> 56789	(only prints (size - 5)th to last index elements)
+Number[-5:-2]			--> 567		(only prints (size - 5)th to (size - 2)th index elements)
+
+Number[2:-2]			--> 234567	(only prints 2th to (size - 2)th index elements)
+
+-----------------------------------------------------------------------------------------------------
+
+# functions about string
+
+String = "I'm learning Python"	: string's length is 19
+
+String.lower()			--> i'm learning python
+String.upper()			--> I'M LEARNING PYTHON
+String[0].isupper()		--> True
+String[0].islower()		--> False
+
+String.len()			--> 19
+
+String.replace("Python", "C++")	--> I'm learning C++		(replace() function only use and return copied strings, that is String does not change at all)
+
+_index = String.index("n")	--> _index = 8			(index() function returns index of given string)
+_index = String.index("n",8)	--> _index = 8
+_index = String.index("n",9)	--> _index = 10			(returns index of given string that over 8th index number element)
+_index = String.index("learn")	--> _index = 4
+
+_index = String.index("k")	--> ValueError: substring not found	(compiler stops given line)
+_index = String.find("k")	--> _index = -1			(compiler does not stops)
+
+_count = String.count("n")	--> _count = 3			(count() function returns the number that the given string repeated in it)
+
+-----------------------------------------------------------------------------------------------------
+
+# how to print strings in multiple ways
+
+Print("%d" % 20)			--> 20
+Print("%s" % "this is given string)	--> this is given string
+Print("%c" % "C")			--> C			(it only prints one character)
+
+Print("%s, %s" % ("S1", "S2"))		--> S1, S2
+
+Print("hi I'm {}years old".format(20))	--> hi I'm 20years old
+Print("{}, {}".format("S1","S2"))	--> S1, S2
+Print("{0}, {1}".format("1", "2"))	--> 1, 2
+Print("{1}, {0}".format("1", "2"))	--> 2, 1
+
+Print("{string_1}, {string_2}".format(string_1 = "hi", string_2 = "hello"))	--> hi, hello
+
+(It only works Python v3.6 ~ )
+
+Num = 10
+String = "hi"
+
+Print(f"{String}, I'm {Num} years old")	--> hi, I'm 10 years old
+
+-----------------------------------------------------------------------------------------------------
+
+Print("I'm learning with "Python" ")	--> "(" was not closed (compiler can't interpret)
+Print("I'm learning with \"Python\" ")	--> I'm learning with "Python"
+
+Print("\\")				--> \
+
+Print("1234\r56")			--> 5634		(r : replace)
+Print("11\b23456")			--> 1231456		(c : back space)
+Print("123\t456")			--> 123	456		(t : tab)
+
+=====================================================================================================
+
+# learning about List
+
+String = "some string"
+Integer = 15
+Character = "!"
+
+List = [Integer, Character, String]
+Print(List)				--> [15, '!', 'some string']
+
+# List data structure can store any object like integers, characters, strings etc...
+
+Print(len(List))			--> 3
+List.index("!")				--> 1
+
+'''
+There are many functions about List data type
+append(), clear(), copy(), count(), extend(), index(), insert(), pop(), remove(), reverse(), sort() etc...
+'''
+
+List.append("?")			--> [15, '!', 'some string', '?']
+List.clear()				--> []
+List.count("!")				--> 1
+
+_list = ["x", "y"]
+
+List.append(_list)			--> [15, '!', 'some string', ['x', 'y']]	: List[3] = ['x', 'y']
+List.extend(_list)			--> [15, '!', 'some string', 'x', 'y']		: List[3] = 'x'
+
+List.pop()				--> some string					: List = [15, '!']	(List[2] was 'some string' but popped away)
+List.remove("!")			--> [15, 'some string']
+
+List.sort()				--> TypeError: '<' not supported between instances of 'str' and 'int'
+
+
+
+==> append(), clear(), copy(), count(), extend(), index(), insert(), pop(), remove(), reverse(), sort()
+
+=====================================================================================================
+
+# About Dictionary	: Dictionary data structure is mapped by immutable key and mutable value
+# Dictionary		: {(key) : (value), ... }	--> key or value can be any data types or data structures
+
+Dictionary = {"key_1" : 1, "key_2" : "string", "key_3" : 'a', "random" : True}
+
+Dictionary[0]			--> KeyError : 0	(Dictionary doesn't have any set of orders, but only by its keys)
+Dictionary['key_1']		--> 1
+
+# you can create or update any elements like this // or delete
+Dictionary['new_key'] = 'new'	--> {'key_1': 1, ... , 'new_key': 'new'}
+Del Dictionary['random']	--> {'key_1': 1, 'key_2': 'string', 'key_3': 'a'}
+
+# you can observe the value or check the given key is exist
+Dictionary.get('random')	--> True
+
+Dictionary.get('?')		--> None
+Dictionary.get('?', "invalid")	--> invalid
+
+Print('key_1' in Dictionary)	--> True
+Print('?' in Dictionary)	--> False
+
+Dictionary.pop('key_2')		--> {'key_1': 1, 'key_3': 'a', 'random': True}
+Dictionary.pop()		--> TypeError: pop expected at least 1 argument, got 0
+
+Dictionary.keys()		--> dict_keys(['key_1', 'key_2', 'key_3', 'random'])
+Dictionary.values()		--> dict_values([1, 'string', 'a', True])
+
+
+# some other functions
+Temp = {0:0, 1:1, 2:2}		(data type should be iterable)
+Result = dict.fromkeys(temp, 0)	--> Result : {'key_1': 0, 'key_2': 0, 'key_3': 0}
+
+Result = dict.popitem(temp)	--> Result : ('key_3', 3) / Temp : {'key_1': 1, 'key_2': 2}
+
+
+==> clear(), get(), items(), keys(), values(), pop(), setdefault(), update()
+==> dict.copy(), dict.fromkeys(), dict.popitem()
+
+=====================================================================================================
+
+# About Tuple		: Tuple data structure can not be change once it declared
+# Tuple			: ((value_1), ...)	or	(value_1), (value_2), ...	--> you can skip typing '()'
+
+# since it can not be changed, there are few methods with Tuple data structure
+
+Tuple = (1, 2, 3, 3, 4, 5)	or	1, 2, 3, 3, 4, 5
+
+Print(Tuple)		--> (1, 2, 3, 3, 4, 5)
+Tuple.index(3)		--> 2
+Tuple.count(3)		--> 2
+
+==> index(), count()
+
+=====================================================================================================
+
+# About Set		: Set data structure only stores non-overlapped, unordered elements
+# Set			: {(element_1), (element_2), ... }
+
+Set_1 = {1, 2, 2, 3, 3}		--> Set_1 : {1, 2, 3}
+Set_2 = {2, 3, 4}		--> Set_2 : {2, 3, 4}
+Set_3 = {1}			--> Set_3 : {1}
+Set_4 = {1, 2, 3, 4, 5}		--> Set_4 : {1, 2, 3, 4, 5}
+
+Set_1.clear()			--> {}
+Set_1.discard(2)		--> {1, 3}
+Set_1.discard(5)		--> {1, 2, 3}
+
+Set_1.isdisjoint(Set_3)		--> True	(whether two sets doesn't have common element)
+Set_1.isdisjoint(Set_2)		--> False
+
+
+# you can operate with two sets		: difference(), intersection(), union(), issubset(), issuperset()
+
+Temp = Set_1.difference(Set_2)	--> Temp : {1}
+Temp = Set_1 - Set_2		--> Temp : {1}
+
+Temp = Set_1.intersection(Set_2)	--> Temp : {2, 3}
+Temp = Set_1 - (Set_1 - Set_2)		--> Temp : {2, 3}
+
+Temp = Set_1.union(Set_2)		--> Temp : {1, 2, 3, 4}
+Temp = Set_1 + Set_2			--> Temp : {1, 2, 3, 4}
+
+Set_1.issubset(Set_4)			--> True	(Set_1 is subset of Set_4)
+Set_1.issuperset(Set_3)			--> True	(Set_1 is superset of Set_3)
+
+
+==> add(), clear(), discard(), isdisjoint(), difference(), intersection(), union(), issubset(), issuperset(), pop(), remove(), update(), _hash()
+
+=====================================================================================================
+
+# almost every data structures in python can be changed in another data structure
+
+Temp = ("this", "that")
+
+Print(Temp, type(Temp), id(Temp))	--> ('this', 'that') <class 'tuple'> 4495797056
+
+Temp = list(temp)
+Print(Temp, type(Temp), id(Temp))	--> ['this', 'that'] <class 'list'> 4496574592
+
+Temp = set(temp)
+Print(Temp, type(Temp), id(Temp))	--> {'this', 'that'} <class 'set'> 4495990496
+
+Temp = dict(temp)			--> ValueError: dictionary update sequence element #0 has length 4; 2 is required
+Temp = dict.fromkeys(temp, 0)
+Print(Temp, type(Temp), id(Temp))	--> {'this': 0, 'that': 0} <class 'dict'> 4522297024
+
+# since Dictionary requires key, you should assign key values to converse data type to Dictionary
+# however, type conversion Dictionary to other structures, doesn't require key value
+
+Temp = {0:1, 2:3}
+Temp = tuple(Temp)
+
+Print(Temp, type(Temp), id(Temp))	--> (0, 2) <class 'tuple'> 4458395776		(key values become elements)
+
+=====================================================================================================
+
+# about conditional --> if	/ about loops --> for, while
+
+if / elif / else
+
+Temp = 5
+
+if temp :
+    print("True")	--> True
+
+if 2 < temp < 6 :
+    print("True")	--> True
+elif not temp :
+    print("False")	--> if temp = 0, prints False
+
+if True and True :
+    print("True")	--> True
+if True & True :
+    print("True")	--> True
+
+if True or False :
+    print("True")	--> True
+if True | False :
+    print("True")	--> True
+
+
+-----------------------------------------------------------------------------------------------------
+
+# for loop
+
+for (any variable) in (any iterable object) :		--> 'for ... in ...' statement can be used with any iterable objects
+
+# example
+
+for num in range(5) : 		--> num : 0, 1, 2, 3, 4
+
+
+for num in range(2,8) : 	--> num : 2, 3, 4, 5, 6, 7
+
+List = ["string_1", "string_2", 3]
+Dictionary = {'key1':1, 'key2':2, 3:3}
+
+for variable in List :		--> variable : 'string_1', 'string_2', 3
+
+for variable in Dictionary :	--> variable : 'key1', 'key2', 3
+
+
+# useful statement with for loop
+
+List = [i for i in range(1, 6)]	--> List : [1, 2, 3, 4, 5]
+
+List = [i + 10 for i in List]	--> List : [11, 12, 13, 14, 15]
+
+Set = {i for i in range(1,11)}	--> Set : {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+Tuple = (i for i in range(1,11))	--> <generator object <genexpr> at 0x10bd60f90>
+
+List = ['string', 'sentence', 'something']
+List = [len(i) for i in List]		--> List : [6, 8, 9]
+List = [i.upper() for i in list]	--> List : ['STRING', 'SENTENCE', 'SOMETHING']
+
+# this kind of statement can not be used in Tuple and Dictionary
+
+
+=====================================================================================================
+
+# using function 		: def (function name)(variable 1, ...) :
+
+# in Python, you can return multiple values using this kind of statement
+
+def function() :
+    print("this is function that returns two values")
+    print("also, you can slice statement like this {0}"\	--> also, you can slice statement like this 2
+        .format(2))
+    return 1, 5
+
+a, b = function()		--> a : 1, b : 5 
+
+# default initialization using function
+
+def function(variable_1, variable_2 = 10, variable_3 = 20) :	--> variable_2 , 3 are initialized 
+
+def function(variable_1 = 10, variable_2, variable_3 = 20) :	--> SyntaxError: non-default argument follows default argument 
+
+# default variables must be followed by non-default variables
+
+-----------------------------------------------------------------------------------------------------
+
+# multiple variable argument in function
+
+def function(variable_1, *variables) :
+    print(f"variable_1 : {variable_1}")
+    print(f"variables : {variables}")
+    for i in variables :
+        print(f'{i}', end = ' ')
+
+i = 10
+s = "string"
+l = [1, 2, 3, 4, 5]
+D = {"key_1":1, 'key_2':2}
+
+function(i,s,l,D)			--> variable_1 : 10
+					    variables : ('string', [1, 2, 3, 4, 5], {'key_1': 1, 'key_2': 2})
+					    string [1, 2, 3, 4, 5] {'key_1': 1, 'key_2': 2} 
+
+
+# changing variables in function
+# In Python, explicit call by reference are mostly forbidden. But mutable objects like List, Dictionary, Set, can be used call by reference method.
+# Remember immutable objects like int, float, Tuple can not be used in call by ref method.
+
+# immutable object : 불변객체	//	mutable object : 가변객체
+
+# to change immutable objects, you should use this kind of methods while using function
+
+def function(variable_1, variable_2) :
+    variable_1 += variable_2
+    return variable_1		--> you should have return value in order to change immutable objects
+
+A = 10
+B = 5
+
+A = function(A,B)		--> A : 15
+
+
+# to change mutable objects
+
+def function(List) :
+    List.append(6)
+
+List = [1, 2, 3, 4, 5]
+function(List)
+
+Print(List)			--> List : [1, 2, 3, 4, 5, 6]
+
+def function(List) :
+    List = [1, 2, 3, 4, 5, 6]
+
+
+List = [1, 2, 3, 4, 5]
+function(List)
+
+Print(List)			--> List : [1, 2, 3, 4, 5]	(doesn't change at all)
+
+
+=====================================================================================================
+
+# standard input and output in Python
+
+Print("hi", "hello")			--> hi hello
+
+Print("hi", "hello", sep = '&')		--> hi&hello
+
+Print('a', 'b', 'c', sep = '&')		--> a&b&c
+
+Print('a', 'b', sep = ' & ', end = '?')	--> a & b?
+
+-----------------------------------------------------------------------------------------------------
+
+Dictionary = {'key_1':1, 'key_2':2, 'key_3':3}
+
+for key, value in Dictionary.items() :
+    print(key, value, sep=' : ')		--> key_1 : 1
+						    key_2 : 2
+						    key_3 : 3
+
+for key, value in Dictionary.items() :
+    print(key.ljust(5), str(value).rjust(5), sep=' : ')		--> key_1 :     1	(value : AttributeError: 'int' object has no attribute 'rjust')
+								    key_2 :     2	(so, value has to be casted in string type to use 'rjust' method)
+								    key_3 :     3
+
+for key, value in Dictionary.items() :
+    print(key.ljust(5), (str(value).zfill(3)).rjust(5), sep=' : ')	--> key_1 :   001
+									    key_2 :   002
+									    key_3 :   003
+
+=====================================================================================================
+
+# file input and output
+
+Something = open('temp.txt', 'w', encoding = 'utf8')	--> the file called 'temp.txt' isn't necessarily exist. If not, the file automatically created.
+
+Print('hi, I'm joon.', file = something)
+Print('second statement', file = something)		--> hi, I'm joon
+							    second statement
+
+something.close()					--> you should always close the file
+
+# 'w' : 덮어쓰기		// 'a' : 이어쓰기		// 'r' : 읽기	// 'r+' : 읽고 쓰기 둘다
+
+Something = open('temp.txt', 'a', encoding = 'utf8')
+Something.write('this is third statement')		--> hi, I'm joon
+							    second statementthis is third statement	(write() method doesn't automatically print '\n'.)
+Something.write('this is third statement')		--> hi, I'm joon
+							    second statement
+							    this is third statement
+something.close()
+
+-----------------------------------------------------------------------------------------------------
+
+Temp = open('temp.txt', 'r', encoding = 'utf8')
+
+print(Temp.read())					--> hi, I'm joon		(read() method read every strings in file)
+							    second statement
+							    this is third statement
+
+print(Temp.readline())					--> hi, I'm joon		(readline() method read each line of file, moving cursor to next line)
+print(Temp.readline())					--> second statement
+print(Temp.readline())					--> this is third statement
+
+-----------------------------------------------------------------------------------------------------
+
+# readlines() method store every lines' strings as List data structure
+
+file = open('temp.txt', 'r', encoding='utf8')
+
+list = file.readlines()
+
+print(list, type(list))				--> ['hi, my name is joon\n', 'this is second statement\n'] <class 'list'>
+
+-----------------------------------------------------------------------------------------------------
+
+# you can easily open and close file using 'with'	: 'with' automatically closes file
+
+with open('temp.txt', 'r+', encoding='utf8') as file :
+    first = file.readlines()
+
+    if not first :
+        temp = "the file didn't have any statement\n"
+        file.write(temp)
+        print(temp)
+    
+    else : 
+        file.write("this is added string\n")
+
+
+=====================================================================================================
+
+# about class	: how to define class in Python
+
+
+class temp :
+    def __init__(self, *variables) :					: In Python, initialization (or constructor) of class is defined as '__init__'. And in mostly 
+        self.mem = variables						every case, you  should use 'self' (I don't know why)
+        print(variables, sep=' ', end='\n')
+
+    def __del__(self) :							: Destructor in Python is used as '__del__'
+        for i in self.mem :
+            print(i)
+        print(self.member)
+        print("this class was desturcted")
+
+Dictionary = {'key_1':1, 'key_2':2}
+List = [1, 2, 3, 4]
+Set = {5, 6, 7, 8}
+Tuple = (9, 10)
+
+Something = temp(5, 'string', Dictionary, List, Set, Tuple)		--> (5, 'string', {'key_1': 1, 'key_2': 2}, [1, 2, 3, 4], {8, 5, 6, 7}, (9, 10))
+									    (in this case, every variables was stored as tuple : type(something.mem) was tuple)
+
+# In Python, any members can be used or created easily even though it wasn't declared in constructor.
+
+Something.member = True
+
+del Something			--> 5
+				    string
+				    {'key_1': 1, 'key_2': 2}
+				    [1, 2, 3, 4]
+				    {8, 5, 6, 7}
+				    (9, 10)
+				    True				: even though 'member' in 'Something' wasn't declared in constructor, you were able to create 
+				    this class was desturcted		member, and able to access it.
+									however, if 'member' wasn't declared, Python wouldn't execute the destructor
+
+									--> AttributeError: 'temp' object has no attribute 'member'
+
+# or you can set default members or it's values
+
+class temp :
+    mem_1 = None
+    mem_2 = 'string'
+    mem_3 = True
+    mem_4 = {}
+
+    def __init__ (self, input_1, input_2, input_3) : 
+        self.mem_1 = input_1
+        self.mem_2 = input_2
+        self.mem_3 = input_3
+
+something = temp(True, False, 5)			--> mem_1 : True
+							    mem_2 : False
+							    mem_3 : 5
+							    mem_4 : {}
+
+something.__init__(1, 2, 3)				--> mem_1 : 1
+							    mem_2 : 2
+							    mem_3 : 3
+							    mem_4 : {}
+
+-----------------------------------------------------------------------------------------------------
+
+# methods in Python	: similar to C++, but in Python, every methods should have 'self' parameter in order to execute.
+
+class temp :
+    def __init__(self, *variables) :
+        print(variables, sep=' ', end='\n\n')
+        self.mem = variables
+
+    def method(self, *input) :
+        print(f'method was executed : {input}\n', sep=' ', end='\n\n')	: using multiple variables as '*input', every variables are converted to tuple.
+
+
+Something = temp()
+Something.method(3)		--> method was executed : (3,)
+
+-----------------------------------------------------------------------------------------------------
+
+# heritage in Python use (parent) statement
+
+
+class parent :
+    def __init__(self, input_1, input_2) :
+        self.mem_1 = input_1
+        self.mem_2 = input_2
+
+    def method_1(self) :
+        print("this is method_1")
+
+    def __del__(self) :
+        print("this is parent destructor")
+
+
+class child(parent) :						--> class 'child' was inherited by 'parent' class
+    def __init__(self, input_1, input_2, input_3, input_4) :
+        parent.__init__(self, input_1, input_2)			--> to inherit parent, first you should construct parent(?). don't forget to type 'self'
+        self.mem_3 = input_3
+        self.mem_4 = input_4
+
+    def method_2(self) :
+        print("this is method_2")
+
+    def __del__(self):
+        print("this is child destructor")			--> if child's destructor wasn't declared, parent's destructor is automatically chosen.
+
+
+Child = child(1, 2, 3, 4)
+
+Child.method_1()						--> Since child was inherited by parent, child also has 'method_1' method
+Child.method_2()
+
+-----------------------------------------------------------------------------------------------------
+
+# multiple heritage
+
+class INT() :
+    value = 0
+    def __init__(self, input) :
+        self.value = input
+
+    def INT_check(self) :
+        print("this is INT class : {0}".format(self.value))
+
+class STRING() :
+    string = None
+    def __init__(self, input) :
+        self.string = input
+
+    def STRING_check(self) :
+        print("this is STRING class : {0}".format(self.STRING))
+
+class temp(INT, STRING) :					--> to use multiple heritage in Python, you should use this kind of statements
+    temp_value = None
+    def __init__(self, input_1, input_2, input_3) :
+        INT.__init__(self, input_1)				--> don't forget to state 'self'. even though parent's initialization doesn't need any variables,
+        STRING.__init__(self, input_2)				you also must state 'self'.	(PARENT.__init__(self))
+        self.temp_value = input_3
+
+    def temp_check(self) :
+        print('this is temp class : {0}, {1}, {2}'.format(self.value, self.string, self.temp_value))
+
+-----------------------------------------------------------------------------------------------------
+
+# method overriding in Python	: actually, it's been said once before 
+				--> [if child's destructor wasn't declared, parent's destructor is automatically chosen.] : at heritage part
+
+# method overriding is a way to use method easily. if you rewrite some method in child's class using same name as in parent's class, even though it was originally declared at parent's class, the method in child's class will be executed.
+
+
+class PARENT() :
+    def __init__(self) -> None:
+        pass
+
+    def method(self) :
+        print('this is parent\'s method')
+
+class CHILD(PARENT) :
+    def __init__(self) -> None:
+        super().__init__()
+    
+    def method(self) :
+        print("this is child's method")
+
+temp_1 = CHILD()
+temp_1.method()					--> this is child's method
+
+-----------------------------------------------------------------------------------------------------
+
+# pass : actually it's not only about class, but also any functions
+
+# 'pass' statement literally passes the code and continue to interpret next line.
+
+def function() :
+    pass
+    print('this code will be execute')
+
+class temp() :
+    def __init__(self):
+        pass
+
+    def method(self) :
+        pass
+
+-----------------------------------------------------------------------------------------------------
+
+# super()		: about only heritage relation, sometimes you would like to use parent's method, but you can not access because of method overriding.
+			in this case, you can access it using 'super()'. 'super()' returns it's own parent's class
+
+# to use super() accurate, you need to state like this : super( (class's name), (object that type(it_self) is the class) )	--> returns it_self's parent
+
+
+class GRAND_PARENT() :
+    def __init__(self) -> None:
+        self.grand_value = 0
+        print("this is grand constructor")
+
+class PARENT(GRAND_PARENT) :
+    something = None
+    def __init__(self, input) -> None:
+        super(PARENT, self).__init__()
+        self.parent_value = input
+        print("this is parent constructor")
+
+    def parent_method(self) :
+        print('this is parent method')
+
+class CHILD(PARENT) :
+    def __init__(self, input_1, input_2) -> None:
+        super().__init__(input_1)			--> in class, 'super()' statement can be simplify as super()
+        self.child_value = input_2
+
+temp = CHILD(1, 5)
+
+super(CHILD, temp).parent_method()			--> however, outside of class, 'super()' statement must be used super(name, obeject)
+							--> so technically, you can use statement like this (it is not grammatically wrong)
+
+class CHILD(PARENT) :
+    def __init__(self, input_1, input_2) -> None:
+        super(PARENT, self).__init__()			--> even though 'CHILD's was inherited by 'PARENT', we didn't initialized 'PARENT', instead 'GRAND_PARENT'
+        self.child_value = input_2			but don't be confused it is clear that CHILD was inherited by PARENT, which mean we can still use PARENT's 
+							methods. it is only didn't be initialized by PARENT's constructor
+
+							--> temp : grand_value : 0
+								   child_value = 5
+								   something = None
+
+-----------------------------------------------------------------------------------------------------
+
+# to use class in Python with another file
+# assume every class is stated in file 'class.py'. To use these class or functions or anything, you should state like this
+
+
+from class import CHILD (or something you want)
+
+temp = CHILD(1, 5)
+
+
+# you should be aware that even though you only wanted import CHILD class, if in class.py file has any statement, that statement will be executed.
+
+<class.py>
+
+class CHILD(PARENT) :
+    def __init__(self, input_1, input_2) -> None:
+        super().__init__(input_1)
+        self.child_value = input_2
+
+print('-------this is class.py-------')
+
+
+<practice.py>
+
+from class import CHILD			--> -------this is class.py-------
+
+temp = CHILD(1, 5)			--> temp : child_value = 5		(even if we only imported CHILD class, every necessary constructor was executed.)
+						   parent_value = 1
+						   something = None
+						   grand_value = 0
+
+
+-----------------------------------------------------------------------------------------------------
+
+# some functions about objects	: isinstance( comparing_object,  checking_object's_type)	--> the second argument (checking_object's_type) must be type
+
+# isinstance() function returns true if comparing object's type is equal to checking object's type.
+
+
+class temp_1() :
+    def __init__(self) -> None:
+        pass
+
+class temp_2(temp) :
+    def __init__(self) -> None:
+        super().__init__()
+        pass
+
+class temp_3() :
+    def __init__(self) -> None:
+        pass
+
+obejct_1 = temp_1()
+obejct_2 = temp_2()
+obejct_3 = temp_3()
+
+List = [obejct_1, obejct_2, obejct_3]
+
+result = isinstance(obejct_1, type(obejct_1))				--> result : True
+
+for i in range(0,3) :
+    for j in range(0, 3) :
+        if isinstance(List[i], type(List[j])): print("True")		--> True
+        else : print("False")						    False
+    print('\n')								    False
+
+									    True	(since temp_2 is inherited by temp_1 class, isinstance(temp_2, temp_1) returns
+									    True	True)
+									    False
+
+									    False
+									    False
+									    True
+
+=====================================================================================================
+
+# try, except		: There are various errors in Python. For example, ValueError, TypeError, NameError, ZeroDivisionError, OverflowError.
+			Furthermore, you can set custom exception in Python, using class.
+
+
+num_1 = 10
+num_2 = int(input())	: input : 0
+
+num_1 / num_2		--> ZeroDivisionError: division by zero
+
+num_2 = str(input())	: input : 'string'
+
+num_1 / num_2		--> TypeError: unsupported operand type(s) for /: 'int' and 'str'
+
+int(num_2)		--> ValueError: invalid literal for int() with base 10: 'string'
+
+# like these case, unexpected errors may occur. However in Python, you can set exception like these error
+
+try :
+    num_1 = 10
+    num_2 = input()
+
+    int(num_2)
+    num_1 / num_2
+
+except DivisionByZero as message:
+    print("input should not be zero : ", message)		--> input must be int type :  unsupported operand type(s) for /: 'int' and 'str'
+except TypeError as message:
+    print("input must be int type : ", message)			--> input must be int type :  unsupported operand type(s) for /: 'int' and 'str'
+except ValueError as message:
+    print("ValueError has occurred : ", message)		--> ValueError has occurred :  invalid literal for int() with base 10: 'string'
+								(this Error occurs int(num_2). I don't know what's difference with TypeError and ValueError)
+
+# other Error cases can be stated like this
+
+except : 
+    print("Unexpected Error has occurred")			--> executed when other Errors has been occurred
+
+except Exception as message :					: or you can state like this
+    print("Unexpected Error has occurred")
+
+-----------------------------------------------------------------------------------------------------
+
+# how to raise (literally) Error on purpose	: raise
+
+# In Python, you can raise Error on purpose to avoid specific case
+
+try :
+    num_1 = 10
+    num_2 = input()
+
+    if num_2 == 0 :				--> if num_2 is equals to zero, you can raise DivisionByZero Error on purpose
+        raise DivisionByZero
+    if type(num_2) == str :
+        raise TypeError
+
+except DivisionByZero :
+    print("Number shouldn't be zero")
+except TypeError :
+    print("Input has to be int type")
+
+-----------------------------------------------------------------------------------------------------
+
+# Custom defined exception using class
+
+# In Python, there's certain 'Exception' class. It's name is also literally Exception. In order to set custom defined exception using class, class has to be inherited
+by Exception class.
+
+
+class Custom(Exception) :				--> remember that it is difference with "Exception" and "exception". I don't know what "exception" is.
+    Pass
+
+try :
+    num_1 = 10
+    num_2 = 5
+    
+    raise Custom
+
+except Custom :
+    print("This is Custom exception")
+
+
+# or you can use this kind of statement
+
+class Custom(Exception) :
+    def __init__(self, string) -> None:
+        self.variable = string
+
+    def __str__(self) -> str:				--> __str__() method is an method that turn object to certain string.
+        return self.variable				in this case, some string is stored at constructor, and __str__ method returns it's variable by string type.
+							as a result, if you state print(Custom), that string will be printed.
+
+temp = Custom('temp')
+print(temp)						--> temp
+
+try :
+    num_1 = 10
+    num_2 = 5
+    
+    raise Custom('this is in try statement')		--> Custom class was constructed with it's variable : 'this is in try statement'
+
+except Custom as message :
+    print("This is Custom exception : ", message)	--> this is in try statement
+
+-----------------------------------------------------------------------------------------------------
+
+# finally	: 'finally' statement is executed at the end of try statement, or except statement
+
+try :
+    temp = input()
+
+    if type(temp) == 1 :
+        raise Exception
+
+    print("hi")
+
+except Exception :
+    print("Exception Error")
+
+finally :
+    print("Finally statement")		--> in any cases, finally statement will be executed eventually.
+
+print("hello")				--> likewise finally, this statement will be also executed, but outside of try statement.
+
+=====================================================================================================
+
+# how to use module in Python
+
+from (file_name) import (function that you want)
+
+from (file_name) import *	: import every functions in (file_name) module
+
+import (file_name)		: import every functions in (file_name) module
+
+import (file_name) as (Module)	: import every functions in (file_name) module, defining module's name as (Module)
+
+
+from (file_name) import (function_1), (function_2)	: import (function_1), (function_2) functions in (file_name) module
+
+from (file_name) import (function_1) as (Function_name)	: import (function_1) function in (file_name) module, defining function's name as (Function_name)
+
+-----------------------------------------------------------------------------------------------------
+
+# using packages in Python	: using (from ... import ...) or (import ...) statement, you can use file (literally just file) same as using modules
+
+# which means, you can use directory. However, to use modules in each directory, you need a module called '__init__.py'. Watch down below.
+
+Directory	-->	(__init__.py)
+			Sub_Directory	-->	(__init__.py)
+			Module_1.py		Module_3.py
+			Module_2.py
+
+# to say it more easily, Directories are Package, .py are modules.
+
+
+# __init__.py is used to verify that superior Directory is a part of the Package. If __init__.py doesn't exist, superior Directory can't be recognized as part of Package.
+
+# __init__.py file also verify which modules (.py files) to be included.
+
+<__init__.py>
+
+__all__ = ['Module_1']		--> only Module_1.py has been included
+
+
+# To use Module_1 and Module_2, you should state like this
+<__init__.py>
+__all__ = ["Module_1", "Module_2"]
+
+from Directory import *
+
+first = Module_1.(class or function's name)
+
+second = Module_2.(class or function's name)
+
+
+# To use Module_3, you should state like this
+<__init__.py>	:	in Sub_Directory
+__all__ = ["Module_3"]
+
+from Directory.Sub_Directory import *
+
+third = Module_3.(class or function's name)
+
+-----------------------------------------------------------------------------------------------------
+
+# __name__		: in developer's code, you can see statement like 
+			if __name__ == "__main__" :
+			often.
+
+=====================================================================================================
+
+
+
+
+개발자 관련 정보 찾기
+
+--> 잡 코리아 들어가기
+--> 채용 공고에서 우대사항 읽어보기
+
+
